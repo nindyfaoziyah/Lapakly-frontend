@@ -1,0 +1,581 @@
+/* 🌿 FONT */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #006633;
+  --secondary: #339933;
+  --white: #ffffff;
+}
+
+/* 🌌 PAGE - Woven Fabric & Organic Abstract */
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Base Texture Background with Woven Organic Pattern Layering */
+.page::before {
+  content: '';
+  position: absolute;
+  top: -20%; display: block;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: 
+    /* Soft glowing organic gradients */
+    radial-gradient(circle at 15% 85%, rgba(51, 153, 51, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(0, 102, 51, 0.08) 0%, transparent 45%),
+    /* Micro woven textile grids acting as fabric threads */
+    repeating-linear-gradient(45deg, rgba(0, 102, 51, 0.02) 0px, rgba(0, 102, 51, 0.02) 2px, transparent 2px, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(51, 153, 51, 0.02) 0px, rgba(51, 153, 51, 0.02) 2px, transparent 2px, transparent 10px);
+  background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+  animation: floatFabric 25s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Blur overlay for depth so it's not too busy */
+.page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes floatFabric {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-1%, -1%) scale(1.02) rotate(0.5deg); }
+  100% { transform: translate(1%, 1%) scale(1.04) rotate(-0.5deg); }
+}
+
+/* HERO SECTION */
+.heroSection {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  margin-bottom: 2rem;
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.logoMark {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 102, 51, 0.15));
+}
+
+.appName {
+  font-family: 'Retrograde Regular', sans-serif;
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  color: var(--secondary);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* CARD (Soft Glassmorphism) */
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem 2.2rem 2.2rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(51, 153, 51, 0.08) 100%);
+  backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  /* Deep, elegant layered soft shadows */
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 102, 51, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset,
+    inset 0 10px 20px rgba(255, 255, 255, 0.9);
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* AVATAR */
+.avatar {
+  width: 76px;
+  height: 76px;
+  margin: -65px auto 16px auto;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  /* Soft 3D popping depth */
+  box-shadow: 
+    0 12px 28px rgba(0, 102, 51, 0.15),
+    inset 0 4px 8px rgba(255, 255, 255, 1);
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  color: var(--primary);
+  position: relative;
+}
+
+/* Subtle organic ring around avatar */
+.avatar::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px dashed rgba(51, 153, 51, 0.35);
+  animation: spinSlow 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* TITLE & SUBTITLE */
+.title {
+  font-family: 'Retrograde Regular', sans-serif;
+  font-size: 1.6rem;
+  color: var(--primary);
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #6a7c72;
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* FIELD (For ForgotPassword or custom inputs) */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label, .form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-left: 0.25rem;
+}
+
+.label span {
+  color: #e53e3e;
+}
+
+/* INPUTS (Globally targeting form inputs to ensure uniform style despite underlying components) */
+.input, .form input {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 102, 51, 0.15) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 0.95rem;
+  color: #2c3e34;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.02),
+    0 2px 8px rgba(0, 0, 0, 0.015) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.input::placeholder, .form input::placeholder {
+  color: #9cb1a4;
+}
+
+.input:focus, .form input:focus {
+  outline: none;
+  border-color: var(--secondary) !important;
+  background: var(--white) !important;
+  /* Input focus highlight requested */
+  box-shadow: 
+    0 0 0 4px rgba(51, 153, 51, 0.15),
+    0 6px 16px rgba(51, 153, 51, 0.08) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* BUTTONS */
+.button, .form button[type="submit"] {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: none !important;
+  border-radius: 12px !important;
+  /* Green gradient */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+  color: var(--white) !important;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  /* Base depth shadow */
+  box-shadow: 0 8px 18px rgba(0, 102, 51, 0.25) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+/* Glow highlight for hover overlay */
+.button::after, .form button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.button:hover, .form button[type="submit"]:hover {
+  transform: translateY(-3px) !important;
+  /* Button hover glow effect requested */
+  box-shadow: 
+    0 12px 24px rgba(0, 102, 51, 0.35),
+    0 0 20px rgba(51, 153, 51, 0.4) !important;
+}
+
+.button:hover::after, .form button[type="submit"]:hover::after {
+  opacity: 1;
+}
+
+.button:disabled, .form button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* LUPA PASSWORD */
+.forgotPassword {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.forgotPassword:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* SWITCH REGISTER */
+.switchText {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1rem;
+}
+
+.switchLink {
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.switchLink:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.maskotImage {
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  animation: mascotHover 5s ease-in-out infinite;
+}
+
+@keyframes mascotHover {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+}
+
+/* =========================================================
+   TWO-COLUMN SPLIT SCREEN LAYOUT (FROM IMAGE REFS)
+   ========================================================= */
+
+:root {
+  --pill-bg: rgba(255, 255, 255, 0.15); 
+}
+
+/* Entire Page Layout */
+.splitPage {
+  min-height: 100vh;
+  display: flex;
+  font-family: 'Work Sans', sans-serif;
+  background-color: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+
+/* LEFT PANE */
+.leftPane {
+  flex: 1;
+  background-color: var(--white);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoCircle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logoBrand {
+  font-family: 'Retrograde Regular', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.logoSub {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: var(--secondary);
+}
+
+/* Illustration Blob Area */
+.illustrationWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.abstractBlob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  z-index: 0;
+}
+
+.blobOuter {
+  position: absolute;
+  inset: 0;
+  background-color: #e5f0ea; /* very light green */
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: morphBlob 15s ease-in-out infinite alternate;
+}
+
+.blobInner {
+  position: absolute;
+  inset: 40px;
+  background-color: #cde4d8; /* slightly darker green */
+  border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+  animation: morphBlob 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes morphBlob {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  100% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+}
+
+/* WAVE SEPARATOR */
+.waveSeparator {
+  position: absolute;
+  left: 50%;
+  top: -2%;
+  height: 104vh; 
+  width: 15vw;
+  fill: var(--primary);
+  transform: translateX(-100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* RIGHT PANE */
+.rightPane {
+  flex: 0 0 50%; 
+  background-color: var(--primary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Under wave */
+}
+
+/* Login Form Area */
+.formContainer {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.loginTitle {
+  font-family: 'Retrograde Regular', sans-serif;
+  font-size: 2.8rem;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+}
+
+/* Inputs */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cce0d6; 
+  margin-left: 1.25rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  color: #9ca3af; /* abu sedikit lebih gelap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.pillInput {
+  width: 100%;
+  padding: 0.6rem 1rem 0.6rem 2.8rem !important; /* Sangat diperkecil paddingnya agar tidak scroll */
+  border-radius: 9999px !important;
+  border: none !important;
+  background-color: var(--pill-bg) !important;
+  color: #333333 !important; /* Warna teks saat mengetik */
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 0.85rem !important;
+  outline: none !important;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05) !important;
+  transition: all 0.2s ease !important;
+}
+
+.pillInput:focus {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2) !important;
+}
+
+.pillInput::placeholder {
+  color: #9ca3af !important; /* abu sedikit lebih gelap */
+}
+
+/* Button */
+.pillButton {
+  width: 85%;
+  margin: 1.5rem auto 0 auto;
+  display: block;
+  padding: 0.8rem;
+  border-radius: 9999px !important;
+  border: none !important;
+  background-color: #5d9e7d !important; 
+  color: var(--white) !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 1px !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.pillButton:hover {
+  background-color: var(--secondary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+.pillButton:disabled {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.errorText {
+  color: #ffa1a1;
+  font-size: 0.75rem;
+  margin-left: 1.25rem;
+  margin-top: 2px;
+}
