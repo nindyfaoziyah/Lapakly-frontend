@@ -157,9 +157,9 @@ const handleSubmit = async () => {
 </div>
         </div>
 
-        {}
-        <div className={styles.sectionLabel}>Tampilan</div>
-        <div className={styles.themeCard}>
+        {/* TAMPILAN (Dark Mode) */}
+        <div className={`${styles.sectionLabel} ${styles.mobileOnly}`}>Tampilan</div>
+        <div className={`${styles.themeCard} ${styles.mobileOnly}`}>
           <ThemeToggle />
         </div>
 
@@ -176,10 +176,12 @@ const handleSubmit = async () => {
           ))}
         </div>
 
-        {}
-        <Button variant="outline" fullWidth onClick={handleLogout}>
-          Keluar dari Akun
-        </Button>
+        {/* LOGOUT */}
+        <div className={styles.mobileOnly}>
+          <Button variant="outline" fullWidth onClick={handleLogout}>
+            Keluar dari Akun
+          </Button>
+        </div>
       </div>
   )
 }

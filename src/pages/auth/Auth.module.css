@@ -579,3 +579,13 @@
   margin-left: 1.25rem;
   margin-top: 2px;
 }
+
+@media (max-width: 768px) {
+  .splitPage {
+    flex-direction: column;
+  }
+  .leftPane { display: none; }
+  .rightPane { flex: 1; padding: 20px; width: 100%; }
+  .formContainer { max-width: 100%; margin: 0 auto; }
+  .waveSeparator { display: none; }
+}

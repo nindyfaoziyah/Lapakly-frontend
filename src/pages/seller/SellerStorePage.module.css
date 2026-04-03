@@ -28,6 +28,7 @@
 .locationNote { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.5; font-weight: 500; }
 
 .coordRow { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) { .coordRow { grid-template-columns: 1fr; gap: 16px; } }
 
 .coordPreview { font-size: 1rem; color: var(--color-primary); font-weight: 700; text-align: center; background-color: var(--color-primary-bg); padding: 12px; border-radius: 12px; border: 1px dashed var(--color-border); }
 

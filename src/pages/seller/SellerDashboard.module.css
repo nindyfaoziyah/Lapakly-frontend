@@ -13,6 +13,10 @@
 
 .body { flex: 1; padding: 24px; display: flex; flex-direction: column; gap: 28px; }
 .statsGrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) {
+  .statsGrid { grid-template-columns: 1fr; gap: 16px; }
+  .statRevenue { grid-column: span 1 !important; flex-direction: column !important; }
+}
 
 .statCard { background-color: var(--color-bg-card); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-normal); }
 .statCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--color-secondary); }
